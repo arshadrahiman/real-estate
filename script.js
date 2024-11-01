@@ -2,7 +2,7 @@ let currentIndex = 0;
 
 function showSlide(index) {
   const carouselImages = document.querySelector('.carousel-images');
-  const totalSlides = document.querySelectorAll('.carousel-images .card').length;
+  const totalSlides = Math.ceil(document.querySelectorAll('.carousel-images .card').length / 4);
   
   if (index >= totalSlides) {
     currentIndex = 0;
@@ -12,7 +12,7 @@ function showSlide(index) {
     currentIndex = index;
   }
 
-  const offset = -currentIndex * 800; // width of each card
+  const offset = -currentIndex * 800; // Move by the carousel's full width
   carouselImages.style.transform = `translateX(${offset}px)`;
 }
 
