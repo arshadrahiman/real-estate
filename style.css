@@ -15,6 +15,9 @@
     align-items: center;
     padding: 0 30px;
   }
+  .sub-header img{
+    cursor: pointer;
+  }
   button {
     border: none;
     border-radius: 10%;
@@ -90,14 +93,18 @@
     text-align: center;
     
   }
+  .container h3 a{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
   .carousel {
     position: relative;
-    width: 100%; /* Adjust this if you want a specific size, e.g., 1000px */
-    /*max-width: 1200px;  Cap width to prevent it from going beyond four images */
+    width: 100%; 
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /*margin: 0 auto;  Center the carousel */
+   
 }
 
 .carousel-images {
@@ -106,8 +113,9 @@
 }
 
 .card {
-    flex: 0 0 25%; /* Each card should take up 25% of the carousel to fit four images in a row */
+    flex: 0 0 33.33%;
     padding: 5px;
+    cursor: pointer;
 }
 
 .card img {
@@ -115,6 +123,17 @@
     height: 300px;
     object-fit: cover;
 }
+.card-footer{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 30px;
+    margin: auto;
+}
+.text {
+    margin-right: 15px; 
+}
+
 
 button.prev {
     position: absolute;

@@ -1,6 +1,6 @@
 let currentIndex = 0;
-const imagesPerSlide = 4;
-const imageWidth = document.querySelector('.card').offsetWidth; // Calculate width based on a single image
+const imagesPerSlide = 3; // Updated to show 3 images at a time
+const imageWidth = document.querySelector('.card').offsetWidth;
 const carouselImages = document.querySelector('.carousel-images');
 const totalSlides = Math.ceil(document.querySelectorAll('.carousel-images .card').length / imagesPerSlide);
 
@@ -12,7 +12,7 @@ function showSlide(index) {
     } else {
         currentIndex = index;
     }
-    const offset = -currentIndex * (imageWidth * imagesPerSlide); // Move by four images' width at once
+    const offset = -currentIndex * (imageWidth * imagesPerSlide);
     carouselImages.style.transform = `translateX(${offset}px)`;
 }
 
