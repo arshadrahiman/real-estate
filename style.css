@@ -6,8 +6,21 @@
     margin: 0;
     font-family: Arial, sans-serif;
   }
+  .sub-header{
+    width: 100%;
+    background-color: #f3f3f3;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+  }
   
   .header {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://static.vecteezy.com/system/resources/thumbnails/004/365/884/small_2x/empty-white-wooden-wall-on-wooden-floor-interior-design-3d-rendering-free-photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -38,6 +51,14 @@
     display: flex;
     justify-content: center;
   }
+  .container{
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    display:inline;
+    text-align: center;
+    
+  }
   
   .carousel {
     position: relative;
@@ -63,17 +84,18 @@
   }
   
   button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
     border: none;
-    padding: 10px;
-    font-size: 24px;
+    border-radius: 10%;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
     cursor: pointer;
-    z-index: 1;
-    transition: background-color 0.3s;
+      
   }
   
   button:hover {
@@ -86,5 +108,17 @@
   
   .next {
     right: 10px;
+  }
+  .key-features{
+    justify-content: center;
+    display: flex;
+    height: 200 vh;
+    width: 500;
+  }
+  .bottom h1{
+    color: #000;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
   }
   
