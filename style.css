@@ -92,12 +92,12 @@
   }
   .carousel {
     position: relative;
-    width: 80%; /* Adjust this if you want a specific size, e.g., 1000px */
-    max-width: 1200px; /* Cap width to prevent it from going beyond four images */
+    width: 100%; /* Adjust this if you want a specific size, e.g., 1000px */
+    /*max-width: 1200px;  Cap width to prevent it from going beyond four images */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 0 auto; /* Center the carousel */
+    /*margin: 0 auto;  Center the carousel */
 }
 
 .carousel-images {
@@ -136,6 +136,7 @@ button.next {
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
+    padding: 0%;
 }
   
   .key-features{
