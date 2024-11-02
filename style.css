@@ -41,31 +41,30 @@ button:hover {
 
 /* Header */
 .header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.vecteezy.com/system/resources/thumbnails/004/365/884/small_2x/empty-white-wooden-wall-on-wooden-floor-interior-design-3d-rendering-free-photo.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://static.vecteezy.com/system/resources/thumbnails/004/365/884/small_2x/empty-white-wooden-wall-on-wooden-floor-interior-design-3d-rendering-free-photo.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh; /* Changed to fill the full viewport height */
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
   padding: 20px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9); /* Stronger shadow for better contrast */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .header-content h1 {
-  font-size: 2.5em; /* Increased size for better visibility */
-  margin: 0; /* Reset margin */
+  font-size: 2em;
 }
 
 .header-content h3 {
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin: 10px 0;
 }
 
 .header-content p {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 /* Features Section */
@@ -105,7 +104,7 @@ button:hover {
 }
 
 .card img {
-  width: 100%; /* Full width for images */
+  width: auto; /* Allow width to adjust */
   height: 200px; /* Set a specific height */
   object-fit: cover; /* Maintain aspect ratio */
   border-radius: 10px; /* Ensuring images have rounded corners */
@@ -122,7 +121,7 @@ button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Slightly darker for better visibility */
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker for better visibility */
   color: white;
   border: none;
   font-size: 24px;
@@ -159,11 +158,11 @@ button.next {
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .header-content h1 {
-    font-size: 2em; /* Smaller size on medium screens */
+    font-size: 1.8em;
   }
 
   .header-content h3 {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   .carousel {
@@ -171,13 +170,13 @@ button.next {
   }
 
   .card {
-    flex: 0 0 45%; /* Adjust width to 45% */
+    flex: 0 0 50%;
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    height: 70vh; /* Slightly less height on smaller screens */
+    height: 50vh;
   }
 
   .header-content h1 {
@@ -194,13 +193,57 @@ button.next {
   }
 
   .card {
-    flex: 0 0 100%; /* Full width for cards */
+    flex: 0 0 100%;
   }
 
   .card img {
     height: 150px; /* Reduced height for smaller screens */
   }
 }
+
+/* Search Bar Styling */
+.search-bar {
+  position: absolute;
+  top: 30%; /* Center vertically in the header */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  padding: 8px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 50%; /* Adjust width as needed */
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-bar button i {
+  color: #28a745; /* Default color for search icon */
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.search-bar button:hover i {
+  color: #1e7e34; /* Change to a darker green on hover */
+  transform: scale(1.2); /* Scale up on hover */
+}
+
+
 
 @media (max-width: 480px) {
   .sub-header {
@@ -210,7 +253,7 @@ button.next {
   }
 
   .header-content h1 {
-    font-size: 1.5em; /* Adjust for small screens */
+    font-size: 1.2em;
   }
 
   .header-content h3,
