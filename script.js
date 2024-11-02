@@ -1,9 +1,46 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDkA4ZFEo4Blsvas5Fw1lFXFds1fTAYB9I",
+  authDomain: "real-estate-bcba5.firebaseapp.com",
+  projectId: "real-estate-bcba5",
+  storageBucket: "real-estate-bcba5.firebasestorage.app",
+  messagingSenderId: "124509100933",
+  appId: "1:124509100933:web:d452f19f3559e9350c02ec",
+  measurementId: "G-RP3HW8GMVY"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 let currentIndex = 0;
 
+// Load the carousel data once the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  loadCarouselData();
+
+  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
+
+  if (nextButton && prevButton) {
+    nextButton.onclick = nextSlide;
+    prevButton.onclick = prevSlide;
+  }
+
+  window.addEventListener('resize', () => showSlide(currentIndex));
+});
+
+// Function to load carousel data from Firestore
 async function loadCarouselData() {
   try {
-    const response = await fetch('data.json');
-    const data = await response.json();
+    const recentPostRef = collection(db, 'recentPost');
+    const querySnapshot = await getDocs(recentPostRef);
+    const data = querySnapshot.docs.map(doc => doc.data());
+    
+    console.log("Fetched data from Firestore:", data); // Log the data
     renderCarousel(data);
     showSlide(0); // Initialize carousel view
   } catch (error) {
@@ -11,6 +48,7 @@ async function loadCarouselData() {
   }
 }
 
+// Function to render carousel
 function renderCarousel(data) {
   const carouselContainer = document.querySelector('.carousel-images');
   carouselContainer.innerHTML = ''; // Clear any existing content
@@ -39,12 +77,14 @@ function renderCarousel(data) {
   });
 }
 
+// Function to determine images per slide based on screen width
 function getImagesPerSlide() {
   if (window.innerWidth < 480) return 1;
   if (window.innerWidth < 768) return 2;
   return 3;
 }
 
+// Function to show slide based on the index
 function showSlide(index) {
   const imagesPerSlide = getImagesPerSlide();
   const imageWidth = document.querySelector('.card').offsetWidth;
@@ -58,10 +98,12 @@ function showSlide(index) {
   } else {
     currentIndex = index;
   }
+  
   const offset = -currentIndex * (imageWidth * imagesPerSlide);
   carouselImages.style.transform = `translateX(${offset}px)`;
 }
 
+// Next and previous slide functions
 function nextSlide() {
   showSlide(currentIndex + 1);
 }
@@ -69,12 +111,3 @@ function nextSlide() {
 function prevSlide() {
   showSlide(currentIndex - 1);
 }
-
-document.querySelector('.next').onclick = nextSlide;
-document.querySelector('.prev').onclick = prevSlide;
-
-// Update slide on resize
-window.addEventListener('resize', () => showSlide(currentIndex));
-
-// Load data and initialize carousel
-loadCarouselData();
