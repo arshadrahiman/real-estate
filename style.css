@@ -148,16 +148,7 @@ button.next {
     top: 50%;
     transform: translateY(-50%);
 }
-
-
  
- /* .row{
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0%;
-}*/
-  
   .key-features{
     justify-content: center;
     display: flex;
