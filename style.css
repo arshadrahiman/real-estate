@@ -240,10 +240,7 @@ button:hover {
   width: 90%;
   background-color: rgb(9, 79, 79);
   border-radius: 10px;
-  
   margin: auto;
-  
-  
 }
 
 .cta h1{
@@ -259,8 +256,19 @@ button:hover {
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
-  padding-left: 60px;
-  
+  padding-left: 60px; 
+}
+/* footer */
+.footer-row{
+ display: flex;
+ padding: 50px;
+ margin-right: 40px;
+
+}
+.footer-col{
+    flex-basis: 20%;
+    flex-grow: 0.5;
+    margin-bottom: 20px;
 }
 
 
