@@ -122,28 +122,33 @@ button:hover {
   padding: 10px;
 }
 
-/* Pagination Buttons */
+/* Pagination Controls */
 .pagination-controls {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 15px; /* Space between buttons and dot */
   margin-top: 20px;
 }
 
-button.prev-page,
-button.next-page {
-  margin: 0 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 8px 12px;
+.pagination-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ccc; /* Gray color */
+  border-radius: 50%; /* Make it a circle */
 }
 
-button.prev-page:hover,
-button.next-page:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+.pagination-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333; /* Adjust color as needed */
+  font-size: 1.5em; /* Adjust icon size */
+  transition: color 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  color: #28a745; /* Color change on hover */
 }
 
 /* Bottom Section */
@@ -257,34 +262,6 @@ button.next-page:hover {
   color: #1e7e34;
   transform: scale(1.2);
 }
-.pagination-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px; /* Space between buttons and dot */
-  margin-top: 20px;
-}
-
-.pagination-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #ccc; /* Gray color */
-  border-radius: 50%; /* Make it a circle */
-}
-
-.pagination-controls button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333; /* Adjust color as needed */
-  font-size: 1.5em; /* Adjust icon size */
-  transition: color 0.3s ease;
-}
-
-.pagination-controls button:hover {
-  color: #28a745; /* Color change on hover */
-}
-
 
 /* Mobile Styles */
 @media (max-width: 480px) {
@@ -311,5 +288,10 @@ button.next-page:hover {
   button.prev-page,
   button.next-page {
     font-size: 16px;
+  }
+
+  .search-bar {
+    width: 90%; /* More width on smaller screens */
+    padding: 5px; /* Adjust padding */
   }
 }
