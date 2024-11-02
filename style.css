@@ -105,7 +105,7 @@ button:hover {
   transition: transform 0.3s;
 }
 
-.card:hover {
+.card img:hover {
   transform: scale(1.05);
 }
 
