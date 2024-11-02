@@ -39,6 +39,40 @@ button:hover {
   background-color: rgba(97, 194, 88, 0.8);
 }
 
+.call-button {
+  border: 2px solid black; /* Black border */
+  border-radius: 50px; /* Make the button curved */
+  background-color: white; /* White background */
+  color: black; /* Black text color */
+  padding: 10px 20px; /* Padding for the button */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flex display to center icon */
+  align-items: center; /* Center icon vertically */
+  justify-content: center; /* Center icon horizontally */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions for background, text color, and border color */
+}
+
+.call-button:hover {
+  background-color: #28a745; /* Green background on hover */
+  color: white; /* White text color on hover */
+  border-color: #28a745; /* Change border to green on hover */
+}
+
+.call-button i {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+
+
+@media (max-width: 768px) {
+  .call-button {
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Smaller font size */
+  }
+}
+
+
 /* Header */
 .header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://static.vecteezy.com/system/resources/thumbnails/004/365/884/small_2x/empty-white-wooden-wall-on-wooden-floor-interior-design-3d-rendering-free-photo.jpg");
@@ -227,7 +261,10 @@ button:hover {
   }
   
 }
-
+/* Remove underline from all links */
+a {
+  text-decoration: none; /* Remove underline from all links */
+}
 /* Search Bar Styling */
 .search-bar {
   position: absolute;
