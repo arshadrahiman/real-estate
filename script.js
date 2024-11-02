@@ -21,18 +21,17 @@ let currentIndex = 0;
 // Load the carousel data once the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   loadCarouselData();
+});
 
-  const nextButton = document.querySelector('.next');
-  const prevButton = document.querySelector('.prev');
-
-  if (nextButton) nextButton.onclick = nextSlide;
-  if (prevButton) prevButton.onclick = prevSlide;
-
-  window.addEventListener('resize', () => showSlide(currentIndex));
+window.addEventListener('resize', () => {
+  showSlide(currentIndex); // Show current slide after resizing
 });
 
 // Function to load carousel data from Firestore
 async function loadCarouselData() {
+  // Show the loading spinner
+  document.getElementById("loading-spinner").style.display = "flex";
+
   try {
     const recentPostRef = collection(db, 'recentPost');
     const querySnapshot = await getDocs(recentPostRef);
@@ -41,8 +40,17 @@ async function loadCarouselData() {
     console.log("Fetched data from Firestore:", data); // Log the data
     renderCarousel(data);
     showSlide(0); // Initialize carousel view
+
+    // Hide the loading spinner and show the content
+    document.getElementById("loading-spinner").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+    document.getElementById("features-section").style.display = "block";
+    document.getElementById("bottom-section").style.display = "block";
+
   } catch (error) {
     console.error("Failed to load carousel data:", error);
+    // Hide the loading spinner if there is an error
+    document.getElementById("loading-spinner").style.display = "none";
   }
 }
 
@@ -66,13 +74,11 @@ function renderCarousel(data) {
         width="382" 
         height="248" 
         decoding="async" 
-        data-nimg="1" 
         class="w-100 cover" 
         src="${item.image || 'default.jpg'}" 
-        style="color: transparent; height: 253px;"
       >
       <div class="container">
-        <h3><a href="#">${item.title || 'Untitled'}</a></h3>
+        <h1><a href="#">${item.title || 'Untitled'}</a></h1>
         <p>${item.location || 'Unknown location'}</p>
         <div class="card-text">
           <span class="text"><i class="fa-solid fa-bed"></i> ${item.beds || 0} Beds</span>
@@ -148,7 +154,7 @@ const propertiesData = [
   }
 ];
 
-// Call the function to add data (uncomment to run)
+// Uncomment the following line to add sample data to Firestore
 // addPropertyListings(propertiesData);
 
 // Function to determine images per slide based on screen width
@@ -198,7 +204,6 @@ function updatePagination(totalSlides) {
   }
 }
 
-
 // Next and previous slide functions
 function nextSlide() {
   showSlide(currentIndex + 1);
@@ -207,3 +212,23 @@ function nextSlide() {
 function prevSlide() {
   showSlide(currentIndex - 1);
 }
+
+// Add touch support for mobile swipe gestures
+let startX = 0;
+let endX = 0;
+
+document.querySelector('.carousel').addEventListener('touchstart', (event) => {
+  startX = event.touches[0].clientX;
+});
+
+document.querySelector('.carousel').addEventListener('touchmove', (event) => {
+  endX = event.touches[0].clientX;
+});
+
+document.querySelector('.carousel').addEventListener('touchend', () => {
+  if (startX > endX + 50) {
+    nextSlide(); // Swipe left
+  } else if (startX + 50 < endX) {
+    prevSlide(); // Swipe right
+  }
+});

@@ -8,77 +8,72 @@
   <script src="https://kit.fontawesome.com/c9a0e78603.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<!-- Sub-header -->
-<section class="sub-header">
-  <a href="index.html">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Emerald Realtors Logo" height="150" width="250">
-  </a>
-  <a href="tel:9876545678">
-    <button class="call-button" aria-label="Call Us">
-      <i class="fas fa-phone"></i> 9876545678
-    </button>
-  </a>
-</section>
-
-
-  <!-- Header -->
-  <section class="header">
-    <div class="search-bar">
-      <input id="property-search" type="text" placeholder="Search for properties..." aria-label="Search for properties">
-      <button aria-label="Search"><i class="fas fa-search"></i></button>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner">
+      <div class="loader"></div>
     </div>
+  
+    <!-- Sub-header -->
+    <section class="sub-header">
+      <a href="index.html">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Emerald Realtors Logo" height="150" width="250">
+      </a>
+      <a href="tel:9876545678">
+        <button class="call-button" aria-label="Call Us">
+          <i class="fas fa-phone"></i> 9876545678
+        </button>
+      </a>
+    </section>
 
-    <div class="header-content">
-      <h1>Emerald Realtors</h1>
-      <h3>Your Home, Your Future</h3>
-      <p>Discover your perfect match, from budget-friendly options to luxurious living.</p>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="features">
-    <header class="features-header">
-      <h3>Discover Our Featured Listings</h3>
-      <p>Explore top properties in prime locations, chosen for their exceptional value.</p>
-    </header>
-
-    <div class="carousel">
-      <div class="carousel-images">
-        <!-- Carousel cards will be dynamically created here -->
+    <!-- Header -->
+    <section class="header" style="display: none;" id="main-content">
+      <div class="search-bar">
+        <input id="property-search" type="text" placeholder="Search for properties..." aria-label="Search for properties">
+        <button aria-label="Search"><i class="fas fa-search"></i></button>
       </div>
-    </div>
 
-    <div class="pagination-controls">
-      <button class="prev-page" onclick="prevSlide()" aria-label="Previous">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <div class="pagination-dot"></div> <!-- Placeholder for pagination dots -->
-      <button class="next-page" onclick="nextSlide()" aria-label="Next">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-    
-    
-    
-  </section>
+      <div class="header-content">
+        <h1>Emerald Realtors</h1>
+        <h3>Your Home, Your Future</h3>
+        <p>Discover your perfect match, from budget-friendly options to luxurious living.</p>
+      </div>
+    </section>
 
-  <!-- Bottom Section -->
-  <section class="bottom">
-    <h1>Key Features</h1>
-    <div class="key-features">
-      <img src="feature-image-1.jpg" alt="Spacious layouts for comfort">
-      <p>Feature description 1</p>
-    </div>
-    <div class="key-features">
-      <img src="feature-image-2.jpg" alt="Modern amenities and finishes">
-      <p>Feature description 2</p>
-    </div>
-    <div class="key-features">
-      <img src="feature-image-3.jpg" alt="Prime locations for accessibility">
-      <p>Feature description 3</p>
-    </div>
-  </section>
+    <!-- Features -->
+    <section class="features" style="display: none;" id="features-section">
+      <header class="features-header">
+        <h3>Discover Our Featured Listings</h3>
+        <p>Explore top properties in prime locations, chosen for their exceptional value.</p>
+      </header>
+      <div class="carousel">
+        <div class="carousel-images">
+          <!-- Carousel Images will be inserted dynamically -->
+        </div>
+      </div>
+      <div class="pagination-controls">
+        <button onclick="prevSlide()">&#10094;</button>
+        <div class="pagination-dot"></div>
+        <button onclick="nextSlide()">&#10095;</button>
+      </div>
+    </section>
 
-  <script type="module" src="script.js"></script>
+    <!-- Bottom Section -->
+    <section class="bottom" style="display: none;" id="bottom-section">
+      <h1>Key Features</h1>
+      <div class="key-features">
+        <img src="feature-image-1.jpg" alt="Spacious layouts for comfort">
+        <p>Feature description 1</p>
+      </div>
+      <div class="key-features">
+        <img src="feature-image-2.jpg" alt="Modern amenities and finishes">
+        <p>Feature description 2</p>
+      </div>
+      <div class="key-features">
+        <img src="feature-image-3.jpg" alt="Prime locations for accessibility">
+        <p>Feature description 3</p>
+      </div>
+    </section>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
