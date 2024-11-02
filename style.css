@@ -50,7 +50,7 @@ button:hover {
   display: flex; /* Flex display to center icon */
   align-items: center; /* Center icon vertically */
   justify-content: center; /* Center icon horizontally */
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions for background, text color, and border color */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions */
 }
 
 .call-button:hover {
@@ -63,15 +63,12 @@ button:hover {
   margin-right: 8px; /* Space between icon and text */
 }
 
-
-
 @media (max-width: 768px) {
   .call-button {
     padding: 8px 16px; /* Adjust padding for smaller screens */
     font-size: 14px; /* Smaller font size */
   }
 }
-
 
 /* Header */
 .header {
@@ -116,7 +113,7 @@ button:hover {
 /* Carousel */
 .carousel {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Hide scrollbar */
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
@@ -124,36 +121,36 @@ button:hover {
 }
 
 .carousel-images {
-  display: flex;
-  transition: transform 0.5s ease;
+  display: flex; /* Use flexbox for horizontal sliding */
+  transition: transform 0.5s ease; /* Smooth transition */
 }
 
 .card {
-  flex: 0 0 30%;
-  padding: 10px;
+  flex: 0 0 28%; /* Reduced width for cards */
+  padding: 8px; /* Reduced padding */
   background-color: white;
   border-radius: 10px;
   color: #0e0d0d;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 15px;
+  margin: 10px; /* Reduced margin */
   transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 180px; /* Reduced height */
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .card img:hover {
   transform: scale(1.05);
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
 .card-footer {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 8px; /* Reduced padding */
 }
 
 /* Pagination Controls */
@@ -185,7 +182,6 @@ button:hover {
 .pagination-controls button:hover {
   color: #28a745; /* Color change on hover */
 }
-
 
 /* Bottom Section */
 .bottom {
@@ -249,22 +245,15 @@ button:hover {
   }
 
   .card {
-    flex: 0 0 100%;
+    flex: 0 0 100%; /* Full width on small screens */
   }
-
-  .card img {
-    transition: transform 0.3s; /* Add transition for the hover effect */
-  }
-  
-  .card img:hover {
-    transform: scale(1.05); /* Scale the image on hover */
-  }
-  
 }
+
 /* Remove underline from all links */
 a {
   text-decoration: none; /* Remove underline from all links */
 }
+
 /* Search Bar Styling */
 .search-bar {
   position: absolute;
@@ -329,13 +318,36 @@ a {
     font-size: 14px;
   }
 
-  button.prev-page,
-  button.next-page {
-    font-size: 16px;
-  }
-
   .search-bar {
     width: 90%; /* More width on smaller screens */
     padding: 5px; /* Adjust padding */
   }
+}
+
+/* Loading Spinner Styles */
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* On top of everything */
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
