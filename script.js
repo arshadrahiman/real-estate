@@ -57,7 +57,17 @@ function renderCarousel(data) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
-      <img src="${item.image}" alt="${item.title}">
+      <img 
+        alt="${item.title}" 
+        loading="lazy" 
+        width="382" 
+        height="248" 
+        decoding="async" 
+        data-nimg="1" 
+        class="w-100 cover" 
+        src="${item.image}" 
+        style="color: transparent; height: 253px;"
+      >
       <div class="container">
         <h3><a href="#">${item.title}</a></h3>
         <p>${item.location}</p>
@@ -76,6 +86,7 @@ function renderCarousel(data) {
     carouselContainer.appendChild(card);
   });
 }
+
 
 // Function to determine images per slide based on screen width
 function getImagesPerSlide() {

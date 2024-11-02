@@ -28,7 +28,7 @@ body {
 button {
   border: none;
   border-radius: 5px;
-  color: #0e0d0d;
+  color: #0d0e0d;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -36,12 +36,12 @@ button {
 }
 
 button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(97, 194, 88, 0.8);
 }
 
 /* Header */
 .header {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://static.vecteezy.com/system/resources/thumbnails/004/365/884/small_2x/empty-white-wooden-wall-on-wooden-floor-interior-design-3d-rendering-free-photo.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://static.vecteezy.com/system/resources/thumbnails/004/365/884/small_2x/empty-white-wooden-wall-on-wooden-floor-interior-design-3d-rendering-free-photo.jpg");
   background-size: cover;
   background-position: center;
   height: 60vh;
@@ -51,7 +51,7 @@ button:hover {
   text-align: center;
   color: white;
   padding: 20px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .header-content h1 {
@@ -83,8 +83,10 @@ button:hover {
 .carousel {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px; /* Curved corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px; /* Added padding around the carousel */
+  background-color: #fff; /* Optional background color for contrast */
 }
 
 .carousel-images {
@@ -93,19 +95,25 @@ button:hover {
 }
 
 .card {
-  flex: 0 0 33.33%;
-  padding: 5px;
+  flex: 0 0 30%; /* Adjust width to 30% */
+  padding: 10px; /* Adjusted padding */
+  background-color: white; /* White background for cards */
+  border-radius: 10px; /* Curved corners for cards */
+  color: #0e0d0d; /* Text color for better contrast */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  width: auto; /* Allow width to adjust */
+  height: 200px; /* Set a specific height */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 10px; /* Ensuring images have rounded corners */
 }
 
 .card-footer {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 10px;
 }
 
 button.prev,
@@ -113,11 +121,12 @@ button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker for better visibility */
   color: white;
   border: none;
   font-size: 24px;
   cursor: pointer;
+  border-radius: 5px; /* Rounded edges for navigation buttons */
 }
 
 button.prev {
@@ -126,6 +135,24 @@ button.prev {
 
 button.next {
   right: 10px;
+}
+
+/* Bottom Section */
+.bottom {
+  background-color: #f3f3f3;
+  padding: 20px;
+  text-align: center;
+}
+
+.key-features {
+  display: inline-block;
+  width: 30%;
+  margin: 10px;
+}
+
+.key-features img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Responsive Styles */
@@ -139,7 +166,7 @@ button.next {
   }
 
   .carousel {
-    padding: 20px;
+    padding: 15px;
   }
 
   .card {
@@ -162,11 +189,15 @@ button.next {
   }
 
   .carousel {
-    padding: 15px;
+    padding: 10px;
   }
 
   .card {
     flex: 0 0 100%;
+  }
+
+  .card img {
+    height: 150px; /* Reduced height for smaller screens */
   }
 }
 
@@ -183,10 +214,6 @@ button.next {
 
   .header-content h3,
   .header-content p {
-    font-size: 0.9em;
-  }
-
-  .card-footer h4 {
     font-size: 0.9em;
   }
 
