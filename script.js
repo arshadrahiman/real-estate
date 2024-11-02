@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -90,34 +90,114 @@ function renderCarousel(data) {
   });
 }
 
+// Function to add property listings to Firestore
+async function addPropertyListings(properties) {
+  const propertiesCollection = collection(db, "recentPost");
+
+  for (const property of properties) {
+    try {
+      const docRef = await addDoc(propertiesCollection, property);
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+}
+
+// Sample data to post
+const propertiesData = [
+  {
+    image: "https://picsum.photos/800/200?random=1",
+    title: "Godown for sale at Edappally, tollbooth",
+    location: "Unnichira Junction, Thykkavu, Edappally, Kochi",
+    beds: 3,
+    baths: 3,
+    size: "1800 sqft",
+    propertyType: "Godown/Warehouse",
+    price: "₹30/sqft"
+  },
+  {
+    image: "https://picsum.photos/800/200?random=2",
+    title: "Office Space for sale at Edappally, Kalamassery",
+    location: "Edappally, Kochi",
+    beds: 4,
+    baths: 2,
+    size: "2500 sqft",
+    propertyType: "Office",
+    price: "₹50/sqft"
+  },
+  {
+    image: "https://picsum.photos/800/200?random=3",
+    title: "Warehouse available at Kalamassery.Cusat",
+    location: "Thykkavu, Edappally, Kochi",
+    beds: 2,
+    baths: 2,
+    size: "1200 sqft",
+    propertyType: "Warehouse",
+    price: "₹25/sqft"
+  },
+  {
+    image: "https://picsum.photos/800/200?random=4",
+    title: "Commercial space at Edappally",
+    location: "Near Lulu Mall, Edappally, Kochi",
+    beds: 3,
+    baths: 3,
+    size: "1500 sqft",
+    propertyType: "Commercial",
+    price: "₹45/sqft"
+  }
+];
+
+// Call the function to add data (uncomment to run)
+// addPropertyListings(propertiesData);
+
 // Function to determine images per slide based on screen width
 function getImagesPerSlide() {
-  if (window.innerWidth < 480) return 1;
-  if (window.innerWidth < 768) return 2;
-  return 3;
+  if (window.innerWidth < 480) return 1; // Mobile
+  if (window.innerWidth < 768) return 2; // Tablet
+  return 3; // Desktop
 }
 
 // Function to show slide based on the index
 function showSlide(index) {
   const imagesPerSlide = getImagesPerSlide();
-  const card = document.querySelector('.card');
-  if (!card) return;
-
-  const imageWidth = card.offsetWidth;
   const carouselImages = document.querySelector('.carousel-images');
-  const totalSlides = Math.ceil(document.querySelectorAll('.carousel-images .card').length / imagesPerSlide);
+  const totalCards = document.querySelectorAll('.carousel-images .card').length;
+  const totalSlides = Math.ceil(totalCards / imagesPerSlide);
 
+  // Update current index for proper pagination
   if (index >= totalSlides) {
-    currentIndex = 0;
+    currentIndex = 0; // Loop back to the first slide
   } else if (index < 0) {
-    currentIndex = totalSlides - 1;
+    currentIndex = totalSlides - 1; // Loop back to the last slide
   } else {
     currentIndex = index;
   }
 
-  const offset = -currentIndex * (imageWidth * imagesPerSlide);
+  // Calculate the offset based on current index
+  const offset = -currentIndex * (carouselImages.offsetWidth / imagesPerSlide);
   carouselImages.style.transform = `translateX(${offset}px)`;
+  
+  updatePagination(totalSlides); // Update pagination dots
 }
+
+function updatePagination(totalSlides) {
+  const paginationContainer = document.querySelector('.pagination-controls .pagination-dot');
+  paginationContainer.innerHTML = ''; // Clear existing dots
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    dot.style.width = '8px';
+    dot.style.height = '8px';
+    dot.style.backgroundColor = i === currentIndex ? '#28a745' : '#ccc';
+    dot.style.borderRadius = '50%';
+    dot.style.display = 'inline-block';
+    dot.style.margin = '0 5px'; // Spacing between dots
+    paginationContainer.appendChild(dot);
+  }
+}
+
 
 // Next and previous slide functions
 function nextSlide() {

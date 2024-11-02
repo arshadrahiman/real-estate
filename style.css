@@ -101,7 +101,7 @@ button:hover {
   border-radius: 10px;
   color: #0e0d0d;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 5px;
+  margin: 15px;
   transition: transform 0.3s;
 }
 
@@ -132,24 +132,26 @@ button:hover {
 }
 
 .pagination-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #ccc; /* Gray color */
-  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Adjust spacing */
 }
 
+/* Adjust button styles for next/previous */
 .pagination-controls button {
   background: none;
   border: none;
   cursor: pointer;
-  color: #333; /* Adjust color as needed */
-  font-size: 1.5em; /* Adjust icon size */
+  color: #333; /* Icon color */
+  font-size: 1.5em; /* Icon size */
   transition: color 0.3s ease;
 }
 
 .pagination-controls button:hover {
   color: #28a745; /* Color change on hover */
 }
+
 
 /* Bottom Section */
 .bottom {
@@ -217,8 +219,13 @@ button:hover {
   }
 
   .card img {
-    height: 150px;
+    transition: transform 0.3s; /* Add transition for the hover effect */
   }
+  
+  .card img:hover {
+    transform: scale(1.05); /* Scale the image on hover */
+  }
+  
 }
 
 /* Search Bar Styling */
