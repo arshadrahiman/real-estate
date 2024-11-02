@@ -240,13 +240,27 @@ button:hover {
   width: 90%;
   background-color: rgb(9, 79, 79);
   border-radius: 10px;
-  padding: 30px;
+  
   margin: auto;
   
   
 }
+
 .cta h1{
   font-size: 2em;
+}
+.cta img{
+  height: 50vh;
+  width: 550px;
+  border-radius: 10px;
+}
+.ctarow{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-left: 60px;
+  
 }
 
 
