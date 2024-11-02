@@ -8,60 +8,70 @@
   <script src="https://kit.fontawesome.com/c9a0e78603.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!--------------------------- Sub-header ------------------------------------------>
+  <!-- Sub-header -->
   <section class="sub-header">
     <a href="index.html">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Logo" height="150" width="250">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Emerald Realtors Logo" height="150" width="250">
     </a>
     <a href="tel:9876545678">
-      <button>9876545678</button>
+      <button>Call Us: 9876545678</button>
     </a>
   </section>
 
-  <!------------------------------- Header ------------------------------------------>
+  <!-- Header -->
   <section class="header">
-    <!-- Search bar section -->
     <div class="search-bar">
-      <input type="text" placeholder="Search for properties...">
-      <button><i class="fas fa-search"></i></button>
+      <label for="property-search" class="visually-hidden">Search for properties</label>
+      <input id="property-search" type="text" placeholder="Search for properties..." aria-label="Search for properties">
+      <button aria-label="Search"><i class="fas fa-search"></i></button>
     </div>
 
     <div class="header-content">
-      <h1>Emerald realtorsl</h1>
-      <h3>Your Home, Your Future.</h3>
-      <p>Discover your perfect match, from budget-friendly to luxurious living.</p>
+      <h1>Emerald Realtors</h1>
+      <h3>Your Home, Your Future</h3>
+      <p>Discover your perfect match, from budget-friendly options to luxurious living.</p>
     </div>
   </section>
 
-  <!--------------------------------- Features -------------------------------------->
+  <!-- Features -->
   <section class="features">
-    <div class="features-header">
+    <header class="features-header">
       <h3>Discover Our Featured Listings</h3>
       <p>Explore top properties in prime locations, chosen for their exceptional value.</p>
-    </div>
+    </header>
 
     <div class="carousel">
       <div class="carousel-images">
         <!-- Carousel cards will be dynamically created here -->
       </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
     </div>
+
+    <div class="pagination-controls">
+      <button class="prev-page" onclick="prevPage()" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <span class="pagination-dot"></span>
+      <button class="next-page" onclick="nextPage()" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    
+    
   </section>
 
-  <!---------------------------- Bottom ------------------------------------------>
+  <!-- Bottom Section -->
   <section class="bottom">
     <h1>Key Features</h1>
     <div class="key-features">
-      <img src="feature-image-1.jpg" alt="Feature 1">
+      <img src="feature-image-1.jpg" alt="Spacious layouts for comfort">
       <p>Feature description 1</p>
     </div>
     <div class="key-features">
-      <img src="feature-image-2.jpg" alt="Feature 2">
+      <img src="feature-image-2.jpg" alt="Modern amenities and finishes">
       <p>Feature description 2</p>
     </div>
     <div class="key-features">
-      <img src="feature-image-3.jpg" alt="Feature 3">
+      <img src="feature-image-3.jpg" alt="Prime locations for accessibility">
       <p>Feature description 3</p>
     </div>
   </section>

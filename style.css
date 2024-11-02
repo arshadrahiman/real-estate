@@ -83,10 +83,10 @@ button:hover {
 .carousel {
   position: relative;
   overflow: hidden;
-  border-radius: 15px; /* Curved corners */
+  border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px; /* Added padding around the carousel */
-  background-color: #fff; /* Optional background color for contrast */
+  padding: 10px;
+  background-color: #fff;
 }
 
 .carousel-images {
@@ -95,19 +95,25 @@ button:hover {
 }
 
 .card {
-  flex: 0 0 30%; /* Adjust width to 30% */
-  padding: 10px; /* Adjusted padding */
-  background-color: white; /* White background for cards */
-  border-radius: 10px; /* Curved corners for cards */
-  color: #0e0d0d; /* Text color for better contrast */
+  flex: 0 0 30%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  color: #0e0d0d;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card img {
-  width: auto; /* Allow width to adjust */
-  height: 200px; /* Set a specific height */
-  object-fit: cover; /* Maintain aspect ratio */
-  border-radius: 10px; /* Ensuring images have rounded corners */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .card-footer {
@@ -116,25 +122,28 @@ button:hover {
   padding: 10px;
 }
 
-button.prev,
-button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker for better visibility */
+/* Pagination Buttons */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button.prev-page,
+button.next-page {
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
-  border-radius: 5px; /* Rounded edges for navigation buttons */
+  border-radius: 5px;
+  padding: 8px 12px;
 }
 
-button.prev {
-  left: 10px;
-}
-
-button.next {
-  right: 10px;
+button.prev-page:hover,
+button.next-page:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Bottom Section */
@@ -148,11 +157,17 @@ button.next {
   display: inline-block;
   width: 30%;
   margin: 10px;
+  transition: transform 0.3s;
+}
+
+.key-features:hover {
+  transform: scale(1.05);
 }
 
 .key-features img {
   max-width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
 /* Responsive Styles */
@@ -197,23 +212,23 @@ button.next {
   }
 
   .card img {
-    height: 150px; /* Reduced height for smaller screens */
+    height: 150px;
   }
 }
 
 /* Search Bar Styling */
 .search-bar {
   position: absolute;
-  top: 30%; /* Center vertically in the header */
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 25px;
   padding: 8px 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 50%; /* Adjust width as needed */
+  width: 50%;
 }
 
 .search-bar input {
@@ -233,18 +248,45 @@ button.next {
 }
 
 .search-bar button i {
-  color: #28a745; /* Default color for search icon */
+  color: #28a745;
   font-size: 18px;
-  transition: color 0.3s, transform 0.3s; /* Smooth transition */
+  transition: color 0.3s, transform 0.3s;
 }
 
 .search-bar button:hover i {
-  color: #1e7e34; /* Change to a darker green on hover */
-  transform: scale(1.2); /* Scale up on hover */
+  color: #1e7e34;
+  transform: scale(1.2);
+}
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Space between buttons and dot */
+  margin-top: 20px;
+}
+
+.pagination-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ccc; /* Gray color */
+  border-radius: 50%; /* Make it a circle */
+}
+
+.pagination-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333; /* Adjust color as needed */
+  font-size: 1.5em; /* Adjust icon size */
+  transition: color 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  color: #28a745; /* Color change on hover */
 }
 
 
-
+/* Mobile Styles */
 @media (max-width: 480px) {
   .sub-header {
     flex-direction: column;
@@ -266,8 +308,8 @@ button.next {
     font-size: 14px;
   }
 
-  button.prev,
-  button.next {
-    font-size: 18px;
+  button.prev-page,
+  button.next-page {
+    font-size: 16px;
   }
 }

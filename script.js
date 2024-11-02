@@ -25,10 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextButton = document.querySelector('.next');
   const prevButton = document.querySelector('.prev');
 
-  if (nextButton && prevButton) {
-    nextButton.onclick = nextSlide;
-    prevButton.onclick = prevSlide;
-  }
+  if (nextButton) nextButton.onclick = nextSlide;
+  if (prevButton) prevButton.onclick = prevSlide;
 
   window.addEventListener('resize', () => showSlide(currentIndex));
 });
@@ -39,7 +37,7 @@ async function loadCarouselData() {
     const recentPostRef = collection(db, 'recentPost');
     const querySnapshot = await getDocs(recentPostRef);
     const data = querySnapshot.docs.map(doc => doc.data());
-    
+
     console.log("Fetched data from Firestore:", data); // Log the data
     renderCarousel(data);
     showSlide(0); // Initialize carousel view
@@ -51,6 +49,11 @@ async function loadCarouselData() {
 // Function to render carousel
 function renderCarousel(data) {
   const carouselContainer = document.querySelector('.carousel-images');
+  if (!carouselContainer) {
+    console.error("Carousel container not found.");
+    return;
+  }
+
   carouselContainer.innerHTML = ''; // Clear any existing content
 
   data.forEach((item) => {
@@ -58,35 +61,34 @@ function renderCarousel(data) {
     card.classList.add('card');
     card.innerHTML = `
       <img 
-        alt="${item.title}" 
+        alt="${item.title || 'Property Image'}" 
         loading="lazy" 
         width="382" 
         height="248" 
         decoding="async" 
         data-nimg="1" 
         class="w-100 cover" 
-        src="${item.image}" 
+        src="${item.image || 'default.jpg'}" 
         style="color: transparent; height: 253px;"
       >
       <div class="container">
-        <h3><a href="#">${item.title}</a></h3>
-        <p>${item.location}</p>
+        <h3><a href="#">${item.title || 'Untitled'}</a></h3>
+        <p>${item.location || 'Unknown location'}</p>
         <div class="card-text">
-          <span class="text"><i class="fa-solid fa-bed"></i> ${item.beds} Beds</span>
-          <span class="text"><i class="fa-solid fa-bath"></i> ${item.baths} Bath</span>
-          <span class="text"><i class="fa-solid fa-ruler-combined"></i> ${item.size}</span>
+          <span class="text"><i class="fa-solid fa-bed"></i> ${item.beds || 0} Beds</span>
+          <span class="text"><i class="fa-solid fa-bath"></i> ${item.baths || 0} Bath</span>
+          <span class="text"><i class="fa-solid fa-ruler-combined"></i> ${item.size || 'N/A'}</span>
         </div>
         <hr>
         <div class="card-footer">
-          <h4>${item.propertyType}</h4>
-          <h4>${item.price}</h4>
+          <h4>${item.propertyType || 'Unknown Type'}</h4>
+          <h4>${item.price || 'Price Not Available'}</h4>
         </div>
       </div>
     `;
     carouselContainer.appendChild(card);
   });
 }
-
 
 // Function to determine images per slide based on screen width
 function getImagesPerSlide() {
@@ -98,7 +100,10 @@ function getImagesPerSlide() {
 // Function to show slide based on the index
 function showSlide(index) {
   const imagesPerSlide = getImagesPerSlide();
-  const imageWidth = document.querySelector('.card').offsetWidth;
+  const card = document.querySelector('.card');
+  if (!card) return;
+
+  const imageWidth = card.offsetWidth;
   const carouselImages = document.querySelector('.carousel-images');
   const totalSlides = Math.ceil(document.querySelectorAll('.carousel-images .card').length / imagesPerSlide);
 
@@ -109,7 +114,7 @@ function showSlide(index) {
   } else {
     currentIndex = index;
   }
-  
+
   const offset = -currentIndex * (imageWidth * imagesPerSlide);
   carouselImages.style.transform = `translateX(${offset}px)`;
 }
