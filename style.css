@@ -117,7 +117,7 @@ button:hover {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  background-color: #fff;
+  background-color: transparent; /* Make carousel background transparent */
 }
 
 .carousel-images {
@@ -128,10 +128,10 @@ button:hover {
 .card {
   flex: 0 0 28%; /* Reduced width for cards */
   padding: 8px; /* Reduced padding */
-  background-color: white;
+  background-color: transparent; /* Make card background transparent */
   border-radius: 10px;
   color: #0e0d0d;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: none; /* Remove shadow if desired */
   margin: 10px; /* Reduced margin */
   transition: transform 0.3s;
 }
