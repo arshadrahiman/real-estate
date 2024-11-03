@@ -9,12 +9,10 @@
 </head>
 <body>
     <section class="details-header">
-      
         <img id="property-image" src="" alt="Property Image" width="100%">
         <h1 id="property-title">Property Title</h1>
     </section>
     <section class="details-content">
-        
         <p id="property-location">Location: <span></span></p>
         <p id="property-beds">Beds: <span></span></p>
         <p id="property-baths">Baths: <span></span></p>
@@ -22,8 +20,6 @@
         <p id="property-type">Type: <span></span></p>
         <p id="property-price">Price: <span></span></p>
     </section>
-
-
 
     <a href="index.html"><button class="back-button">Back to Listings</button></a>
 
@@ -38,40 +34,38 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
             <button type="submit">Submit</button>
-            
         </form>
         <div class="contact-buttons">
-            <a href="https://wa.me/+916238069908?text=Hello,%20I'm%20interested%20in%20the%20property." target="_blank">
-                <button class="whatsapp-button">
-                    <i class="fab fa-whatsapp"></i>Message Now
+            <button class="whatsapp-button" id="whatsapp-button">
+                <i class="fab fa-whatsapp"></i> Message Now
+            </button>
+            <a href="tel:+916238069908">
+                <button class="call-button" aria-label="Call Us">
+                    <i class="fas fa-phone"></i> Contact Us
                 </button>
             </a>
         </div>
-        <a href="tel:+916238069908">
-            <button class="call-button" aria-label="Call Us">
-              <i class="fas fa-phone"></i> Contact Us
-            </button>
-          </a>
     </section>
     
     <section class="footer">
         <div class="footer-row">
-          <div class="footer-col">
-          <a href="index.html">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="BUMY Logo" height="150" width="250">
-          </a>
+            <div class="footer-col">
+                <a href="index.html">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="BUMY Logo" height="150" width="250">
+                </a>
+            </div>
+            <div class="footer-col">
+                <p>Customer Care Number<br></p>
+                <p>6238069908<br></p>
+                <p>Our Address<br></p>
+                <p>Kochi, Ernakulam</p>
+            </div>
+            <div class="footer-col">
+                <p>Follow us</p>
+            </div>
         </div>
-          <div class="footer-col">
-            <p>Customer Care Number<br></p>
-            <p>6238069908<br></p>
-            <p>Our Address<br></p>
-            <p>Kochi,Ernakulam</p>
-        </div>
-        <div class="footercol">
-           <p>Follow us </p>
-        </div>
-        </div>
-      </section>
+    </section>
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const propertyData = JSON.parse(decodeURIComponent(urlParams.get('data')));
@@ -84,6 +78,16 @@
         document.getElementById('property-size').querySelector('span').textContent = propertyData.size;
         document.getElementById('property-type').querySelector('span').textContent = propertyData.propertyType;
         document.getElementById('property-price').querySelector('span').textContent = propertyData.price;
+
+        // Create WhatsApp message
+        const whatsappButton = document.getElementById('whatsapp-button');
+        const message = `Hello, I'm interested in the property: \n\nTitle: ${propertyData.title}\nLocation: ${propertyData.location}\nBeds: ${propertyData.beds}\nBaths: ${propertyData.baths}\nSize: ${propertyData.size}\nType: ${propertyData.propertyType}\nPrice: ${propertyData.price}`;
+        
+        whatsappButton.addEventListener('click', function() {
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/+916238069908?text=${encodedMessage}`;
+            window.open(whatsappLink, '_blank');
+        });
 
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -123,7 +127,6 @@
         .call-button, .whatsapp-button {
             padding: 10px 15px;
             margin-right: 10px;
-            background-color: #007bff; /* Blue for Call */
             color: white;
             border: none;
             border-radius: 5px;
@@ -131,6 +134,9 @@
         }
         .whatsapp-button {
             background-color: #25D366; /* WhatsApp Green */
+        }
+        .call-button {
+            background-color: #007bff; /* Blue for Call */
         }
         .call-button:hover {
             background-color: #0056b3;
