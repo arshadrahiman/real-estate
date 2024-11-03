@@ -1,11 +1,21 @@
 /* General Styles */
 * {
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.carousel, .header, .features, .bottom, .footer-row {
+  overflow-y: hidden;
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  overflow-y: scroll;
 }
 
 /* Sub-header */
@@ -453,7 +463,7 @@ button:hover {
   }
 
   .card {
-    flex: 0 0 100%; /* Full width on small screens */
+    flex: 0 0 95%; /* Full width on small screens */
   }
 }
 
@@ -507,7 +517,7 @@ a {
 /* Mobile Styles */
 @media (max-width: 480px) {
   .sub-header {
-    flex-direction: column;
+    flex-direction: row;
     height: auto;
     padding: 20px;
   }
