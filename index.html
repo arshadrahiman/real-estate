@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RealEstate</title>
+  <title>Emerald Realtors</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/c9a0e78603.js" crossorigin="anonymous"></script>
 </head>
@@ -14,7 +14,7 @@
     </div>
   
     <!-- Sub-header -->
-    <section class="sub-header">
+    <header class="sub-header">
       <a href="index.html">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Emerald Realtors Logo" height="150" width="250">
       </a>
@@ -23,105 +23,122 @@
           <i class="fas fa-phone"></i> 9876545678
         </button>
       </a>
-    </section>
+    </header>
 
-    <!-- Header -->
-    <section class="header" style="display: none;" id="main-content">
-      <div class="search-bar">
-        <input id="property-search" type="text" placeholder="Search for properties..." aria-label="Search for properties">
-        <button aria-label="Search"><i class="fas fa-search"></i></button>
-      </div>
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Header Section -->
+      <section class="header">
+        <div class="search-bar">
+          <input id="property-search" type="text" placeholder="Search for properties..." aria-label="Search for properties">
+          <button aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
 
-      <div class="header-content">
-        <h1>Emerald Realtors</h1>
-        <h3>Your Home, Your Future</h3>
-        <p>Discover your perfect match, from budget-friendly options to luxurious living.</p>
-      </div>
-    </section>
+        <div class="header-content">
+          <h1>Emerald Realtors</h1>
+          <h3>Your Home, Your Future</h3>
+          <p>Discover your perfect match, from budget-friendly options to luxurious living.</p>
+        </div>
+      </section>
 
-    <!-- Features -->
-    <section class="features" style="display: none;" id="features-section">
-      <header class="features-header">
-        <h3>Discover Our Featured Listings</h3>
-        <p>Explore top properties in prime locations, chosen for their exceptional value.</p>
-      </header>
-      <div class="carousel">
-        <div class="carousel-images">
-          <!-- Carousel Images will be inserted dynamically -->
+      <!-- Features Section -->
+      <section class="features" id="features-section">
+        <header class="features-header">
+          <h3>Discover Our Featured Listings</h3>
+          <p>Explore top properties in prime locations, chosen for their exceptional value.</p>
+        </header>
+        <div class="carousel">
+          <div class="carousel-images">
+            <!-- Demo Data for Carousel Images -->
+            <div class="card">
+              <img src="https://via.placeholder.com/300x200?text=House+1" alt="House 1">
+              <div class="card-footer">
+                <h4>Modern Family Home</h4>
+                <p>$500,000</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="https://via.placeholder.com/300x200?text=House+2" alt="House 2">
+              <div class="card-footer">
+                <h4>Luxury Villa</h4>
+                <p>$1,200,000</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="https://via.placeholder.com/300x200?text=House+3" alt="House 3">
+              <div class="card-footer">
+                <h4>Cozy Cottage</h4>
+                <p>$350,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pagination-controls">
+          <button onclick="prevSlide()">&#10094;</button>
+          <div class="pagination-dot"></div>
+          <button onclick="nextSlide()">&#10095;</button>
+        </div>
+      </section>
+
+      <!-- Bottom Section -->
+      <section class="bottom">
+        <h1>See How We Can Help</h1>
+        <div class="row">
+          <div class="key-features">
+            <img src="https://via.placeholder.com/300x200?text=Residential" alt="Residential Sales">
+            <h3>Residential Sales</h3>
+            <p>We specialize in buying and selling a wide range of properties, from budget-friendly apartments to high-end luxury homes.</p>
+          </div>
+          <div class="key-features">
+            <img src="https://via.placeholder.com/300x200?text=Rental" alt="Rental Properties">
+            <h3>Rental Properties</h3>
+            <p>Whether you're seeking a rental property or looking to lease out your own, we can assist you in finding the perfect match.</p>
+          </div>
+          <div class="key-features">
+            <img src="https://via.placeholder.com/300x200?text=Investment" alt="Investment Properties">
+            <h3>Investment Properties</h3>
+            <p>Our team can help you identify profitable investment opportunities and navigate the complexities of the real estate market.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="cta">
+        <div class="ctarow">
+          <div class="ctacol">
+            <h1>Your Perfect Property Awaits—<br>Let’s Find It Together</h1>
+            <p>Whether it’s a home, office, or investment, our team is here to guide you to the perfect property. Let’s make your real estate dreams a reality.</p>
+            <a href="tel:9876545678">
+              <button class="call-button" aria-label="Call Us">
+                <i class="fas fa-phone"></i> 9876545678
+              </button>
+            </a>
+          </div>
+          <div class="ctacol">
+            <img src="https://via.placeholder.com/550x300?text=Your+Dream+Home" alt="Dream Home">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <a href="index.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Emerald Realtors Logo" height="150" width="250">
+          </a>
+        </div>
+        <div class="footer-col">
+          <p>Customer Care Number: <br>9876544567</p>
+          <p>Our Address: <br>Kochi, Ernakulam</p>
+        </div>
+        <div class="footer-col">
+          <p>Follow us on social media</p>
+          <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </div>
       </div>
-      <div class="pagination-controls">
-        <button onclick="prevSlide()">&#10094;</button>
-        <div class="pagination-dot"></div>
-        <button onclick="nextSlide()">&#10095;</button>
-      </div>
-    </section>
-
-    <!-- Bottom Section -->
-    <section class="bottom">
-      <h1>See How We Can Help</h1>
-      <div class="row">
-          <div class="key-features">
-              <img src="https://wklxwwcxcqqhjmafoqvg.supabase.co/storage/v1/object/public/userProfile/0991e030-1ee6-4556-9cf4-6940a9500d7f/features1.jpg">
-              <h3>Residential Sales</h3>
-              <p>We specialize in buying and selling a wide range of properties, from
-                 budget-friendly apartments to high-end luxury homes.</p>
-          </div>
-          <div class="key-features">
-              <img src="https://wklxwwcxcqqhjmafoqvg.supabase.co/storage/v1/object/public/userProfile/0991e030-1ee6-4556-9cf4-6940a9500d7f/features2.jpg">
-              <h3>Rental Properties</h3>
-              <p>Whether you're seeking a rental property or looking to lease out your
-                 own, we can assist you in finding the perfect match.</p>
-          </div>
-          <div class="key-features">
-              <img src="https://wklxwwcxcqqhjmafoqvg.supabase.co/storage/v1/object/public/userProfile/0991e030-1ee6-4556-9cf4-6940a9500d7f/features3.jpg">
-              <h3>Investment Properties</h3>
-              <p>Our team can help you identify profitable investment opportunities and
-                 navigate the complexities of the real estate market.</p>
-
-          </div>
-      </div>
-
-  </section>
-  <!---------------------------cta----------------------------------->
-  <section class="cta">
-    <div class="ctarow">
-      <div class="ctacol">
-      <h1>Your Perfect Property Awaits—<br>Let’s Find It Together</h1>
-      <p>Whether it’s a home, office, or investment, our team is here to guide you to the perfect property.
-         Let’s make your real estate dreams a reality.</p>
-      <a href="tel:9876545678">
-          <button class="call-button" aria-label="Call Us">
-            <i class="fas fa-phone"></i> 9876545678
-          </button>
-      </a>
-    </div>
-    <div class="ctacol">
-      <img src="https://cdn.habitusliving.com/wp-content/uploads/2024/02/1.smallmodhomesFEAT.jpg">
-    </div>
-    </div>
-  </section>
-  <!--------------------------footer--------------------------------->
-  <section class="footer">
-    <div class="footer-row">
-      <div class="footer-col">
-      <a href="index.html">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="Emerald Realtors Logo" height="150" width="250">
-      </a>
-    </div>
-      <div class="footer-col">
-        <p>Customer Care Number<br></p>
-        <p>9876544567<br></p>
-        <p>Our Address<br></p>
-        <p>Kochi,Ernakulam</p>
-    </div>
-    <div class="footercol">
-       <p>Follow us </p>
-    </div>
-    </div>
-    
-
-  </section>
+    </footer>
 
     <script type="module" src="script.js"></script>
 </body>
