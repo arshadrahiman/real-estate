@@ -19,6 +19,9 @@
         <p id="property-type">Type: <span></span></p>
         <p id="property-price">Price: <span></span></p>
     </section>
+
+
+
     <a href="index.html"><button class="back-button">Back to Listings</button></a>
 
     <!-- Contact Us Section -->
@@ -32,8 +35,16 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
             <button type="submit">Submit</button>
+            
         </form>
+        <div class="contact-buttons">
+            <a href="tel:+1234567890"><button class="call-button">Contact Us</button></a>
+            <a href="https://wa.me/9873293928?text=Hello,%20I'm%20interested%20in%20the%20property." target="_blank">
+                <button class="whatsapp-button">Message Now</button>
+            </a>
+        </div>
     </section>
+    
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -79,6 +90,27 @@
         }
         .back-button:hover {
             background-color: #218838;
+        }
+        .contact-buttons {
+            margin: 20px 0;
+        }
+        .call-button, .whatsapp-button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            background-color: #007bff; /* Blue for Call */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .whatsapp-button {
+            background-color: #25D366; /* WhatsApp Green */
+        }
+        .call-button:hover {
+            background-color: #0056b3;
+        }
+        .whatsapp-button:hover {
+            background-color: #20c997;
         }
         .contact-us {
             margin-top: 40px;
