@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
@@ -40,14 +41,37 @@
             
         </form>
         <div class="contact-buttons">
-            <a href="tel:+1234567890"><button class="call-button">Contact Us</button></a>
-            <a href="https://wa.me/9873293928?text=Hello,%20I'm%20interested%20in%20the%20property." target="_blank">
-                <button class="whatsapp-button">Message Now</button>
+            <a href="https://wa.me/6238069908?text=Hello,%20I'm%20interested%20in%20the%20property." target="_blank">
+                <button class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Send Message Now
+                </button>
             </a>
         </div>
+        <a href="tel:6238069908">
+            <button class="call-button" aria-label="Call Us">
+              <i class="fas fa-phone"></i> Contact Us
+            </button>
+          </a>
     </section>
     
-
+    <section class="footer">
+        <div class="footer-row">
+          <div class="footer-col">
+          <a href="index.html">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8N_-egfLu5EW5wBssmVWbQPn54mq5yqDSxA&s" alt="BUMY Logo" height="150" width="250">
+          </a>
+        </div>
+          <div class="footer-col">
+            <p>Customer Care Number<br></p>
+            <p>6238069908<br></p>
+            <p>Our Address<br></p>
+            <p>Kochi,Ernakulam</p>
+        </div>
+        <div class="footercol">
+           <p>Follow us </p>
+        </div>
+        </div>
+      </section>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const propertyData = JSON.parse(decodeURIComponent(urlParams.get('data')));
