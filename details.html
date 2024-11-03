@@ -69,10 +69,30 @@
         </div>
     </section>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDkA4ZFEo4Blsvas5Fw1lFXFds1fTAYB9I",
+            authDomain: "real-estate-bcba5.firebaseapp.com",
+            projectId: "real-estate-bcba5",
+            storageBucket: "real-estate-bcba5.appspot.com",
+            messagingSenderId: "124509100933",
+            appId: "1:124509100933:web:d452f19f3559e9350c02ec",
+            measurementId: "G-RP3HW8GMVY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Load property data from URL
         const urlParams = new URLSearchParams(window.location.search);
         const propertyData = JSON.parse(decodeURIComponent(urlParams.get('data')));
 
+        // Populate property details
         document.getElementById('property-title').textContent = propertyData.title;
         document.getElementById('property-image').src = propertyData.image;
         document.getElementById('property-location').querySelector('span').textContent = propertyData.location;
@@ -82,7 +102,7 @@
         document.getElementById('property-type').querySelector('span').textContent = propertyData.propertyType;
         document.getElementById('property-price').querySelector('span').textContent = propertyData.price;
 
-        // Create WhatsApp message
+        // WhatsApp message creation
         const whatsappButton = document.getElementById('whatsapp-button');
         const message = `Hello, I'm interested in the property: \n\nTitle: ${propertyData.title}\nLocation: ${propertyData.location}\nBeds: ${propertyData.beds}\nBaths: ${propertyData.baths}\nSize: ${propertyData.size}\nType: ${propertyData.propertyType}\nPrice: ${propertyData.price}`;
         
@@ -92,10 +112,30 @@
             window.open(whatsappLink, '_blank');
         });
 
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
             event.preventDefault();
-            alert('Thank you for your message!');
-            this.reset(); // Reset the form after submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            const message = document.getElementById('message').value;
+
+            // Add data to Firestore
+            try {
+                await addDoc(collection(db, "contacts"), {
+                    name: name,
+                    email: email,
+                    location: location,
+                    message: message,
+                    timestamp: new Date()
+                });
+                alert('Thank you for your message!');
+                this.reset(); // Reset the form after submission
+            } catch (error) {
+                console.error("Error submitting message: ", error);
+                alert('There was an error sending your message. Please try again.');
+            }
         });
     </script>
 
@@ -174,6 +214,26 @@
         }
         button[type="submit"]:hover {
             background-color: #218838;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-col {
+            width: 30%;
+        }
+        .footer-col p {
+            margin: 5px 0;
+        }
+        .footer-col a img {
+            max-width: 100%;
         }
     </style>
 </body>
