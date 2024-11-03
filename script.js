@@ -97,62 +97,62 @@ function renderCarousel(data) {
 }
 
 // Function to add property listings to Firestore
-// async function addPropertyListings(properties) {
-//   const propertiesCollection = collection(db, "getAllData");
+async function addPropertyListings(properties) {
+  const propertiesCollection = collection(db, "recentPost");
 
-//   for (const property of properties) {
-//     try {
-//       const docRef = await addDoc(propertiesCollection, property);
-//       console.log("Document written with ID: ", docRef.id);
-//     } catch (e) {
-//       console.error("Error adding document: ", e);
-//     }
-//   }
-// }
+  for (const property of properties) {
+    try {
+      const docRef = await addDoc(propertiesCollection, property);
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+}
 
 // Sample data to post
-// const propertiesData = [
-//   {
-//     image: "https://picsum.photos/800/200?random=1",
-//     title: "Godown for sale at Edappally, tollbooth",
-//     location: "Unnichira Junction, Thykkavu, Edappally, Kochi",
-//     beds: 3,
-//     baths: 3,
-//     size: "1800 sqft",
-//     propertyType: "Godown/Warehouse",
-//     price: "₹30/sqft"
-//   },
-//   {
-//     image: "https://picsum.photos/800/200?random=2",
-//     title: "Office Space for sale at Edappally, Kalamassery",
-//     location: "Edappally, Kochi",
-//     beds: 4,
-//     baths: 2,
-//     size: "2500 sqft",
-//     propertyType: "Office",
-//     price: "₹50/sqft"
-//   },
-//   {
-//     image: "https://picsum.photos/800/200?random=3",
-//     title: "Warehouse available at Kalamassery.Cusat",
-//     location: "Thykkavu, Edappally, Kochi",
-//     beds: 2,
-//     baths: 2,
-//     size: "1200 sqft",
-//     propertyType: "Warehouse",
-//     price: "₹25/sqft"
-//   },
-//   {
-//     image: "https://picsum.photos/800/200?random=4",
-//     title: "Commercial space at Edappally",
-//     location: "Near Lulu Mall, Edappally, Kochi",
-//     beds: 3,
-//     baths: 3,
-//     size: "1500 sqft",
-//     propertyType: "Commercial",
-//     price: "₹45/sqft"
-//   }
-// ];
+const propertiesData = [
+  {
+    image: "https://picsum.photos/800/200?random=1",
+    title: "Godown for sale at Edappally, tollbooth",
+    location: "Unnichira Junction, Thykkavu, Edappally, Kochi",
+    beds: 3,
+    baths: 3,
+    size: "1800 sqft",
+    propertyType: "Godown/Warehouse",
+    price: "₹30/sqft"
+  },
+  {
+    image: "https://picsum.photos/800/200?random=2",
+    title: "Office Space for sale at Edappally, Kalamassery",
+    location: "Edappally, Kochi",
+    beds: 4,
+    baths: 2,
+    size: "2500 sqft",
+    propertyType: "Office",
+    price: "₹50/sqft"
+  },
+  {
+    image: "https://picsum.photos/800/200?random=3",
+    title: "Warehouse available at Kalamassery.Cusat",
+    location: "Thykkavu, Edappally, Kochi",
+    beds: 2,
+    baths: 2,
+    size: "1200 sqft",
+    propertyType: "Warehouse",
+    price: "₹25/sqft"
+  },
+  {
+    image: "https://picsum.photos/800/200?random=4",
+    title: "Commercial space at Edappally",
+    location: "Near Lulu Mall, Edappally, Kochi",
+    beds: 3,
+    baths: 3,
+    size: "1500 sqft",
+    propertyType: "Commercial",
+    price: "₹45/sqft"
+  }
+];
 
 // Uncomment the following line to add sample data to Firestore
 // addPropertyListings(propertiesData);
