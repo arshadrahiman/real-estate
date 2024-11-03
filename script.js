@@ -92,6 +92,11 @@ function renderCarousel(data) {
         </div>
       </div>
     `;
+          // Add click event to the card
+          card.addEventListener('click', () => {
+            const propertyData = encodeURIComponent(JSON.stringify(item));
+            window.location.href = `details.html?data=${propertyData}`;
+        });
     carouselContainer.appendChild(card);
   });
 }

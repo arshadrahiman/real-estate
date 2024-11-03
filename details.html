@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="details-header">
+        <h1 id="property-title">Property Title</h1>
+        <img id="property-image" src="" alt="Property Image" width="100%">
+    </section>
+    <section class="details-content">
+        <p id="property-location">Location: <span></span></p>
+        <p id="property-beds">Beds: <span></span></p>
+        <p id="property-baths">Baths: <span></span></p>
+        <p id="property-size">Size: <span></span></p>
+        <p id="property-type">Type: <span></span></p>
+        <p id="property-price">Price: <span></span></p>
+    </section>
+    <a href="index.html"><button class="back-button">Back to Listings</button></a>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const propertyData = JSON.parse(decodeURIComponent(urlParams.get('data')));
+
+        document.getElementById('property-title').textContent = propertyData.title;
+        document.getElementById('property-image').src = propertyData.image;
+        document.getElementById('property-location').querySelector('span').textContent = propertyData.location;
+        document.getElementById('property-beds').querySelector('span').textContent = propertyData.beds;
+        document.getElementById('property-baths').querySelector('span').textContent = propertyData.baths;
+        document.getElementById('property-size').querySelector('span').textContent = propertyData.size;
+        document.getElementById('property-type').querySelector('span').textContent = propertyData.propertyType;
+        document.getElementById('property-price').querySelector('span').textContent = propertyData.price;
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+        .details-header {
+            text-align: center;
+        }
+        .details-content {
+            margin-top: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</body>
+</html>
