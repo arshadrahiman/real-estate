@@ -21,6 +21,20 @@
     </section>
     <a href="index.html"><button class="back-button">Back to Listings</button></a>
 
+    <!-- Contact Us Section -->
+    <section class="contact-us">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const propertyData = JSON.parse(decodeURIComponent(urlParams.get('data')));
@@ -33,6 +47,12 @@
         document.getElementById('property-size').querySelector('span').textContent = propertyData.size;
         document.getElementById('property-type').querySelector('span').textContent = propertyData.propertyType;
         document.getElementById('property-price').querySelector('span').textContent = propertyData.price;
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message!');
+            this.reset(); // Reset the form after submission
+        });
     </script>
 
     <style>
@@ -58,6 +78,34 @@
             cursor: pointer;
         }
         .back-button:hover {
+            background-color: #218838;
+        }
+        .contact-us {
+            margin-top: 40px;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
             background-color: #218838;
         }
     </style>
